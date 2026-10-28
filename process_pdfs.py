@@ -8,7 +8,9 @@ INPUT_DIR = BASE_DIR / 'input'
 OUTPUT_DIR = BASE_DIR / 'out'
 
 # la consola de windows usa cp1252 por default y rompe con nombres de archivo con tildes
-sys.stdout.reconfigure(encoding='utf-8')
+# con pythonw no hay consola y stdout es None
+if sys.stdout is not None:
+    sys.stdout.reconfigure(encoding='utf-8')
 
 
 def convert_all_pdfs():
