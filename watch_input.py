@@ -1,3 +1,4 @@
+import math
 import time
 from process_pdfs import INPUT_DIR, convert_all_pdfs
 
@@ -46,7 +47,7 @@ def watch():
                 deadline = None
                 last_shown = None
             else:
-                shown = int(remaining) + 1
+                shown = math.ceil(remaining)
                 if shown != last_shown:
                     print(f'\rconvirtiendo en {shown}s...  ', end='', flush=True)
                     last_shown = shown
